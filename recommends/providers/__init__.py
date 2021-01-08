@@ -133,8 +133,8 @@ class RecommendationProvider(object):
 
         See :doc:`signals`.
         """
-        remove_similarities.delay(rated_model=model_path(sender), object_id=instance.id)
-        remove_suggestions.delay(rated_model=model_path(sender), object_id=instance.id)
+        remove_similarities(rated_model=model_path(sender), object_id=instance.id)
+        remove_suggestions(rated_model=model_path(sender), object_id=instance.id)
 
     def vote_list(self):
         vote_list = self.storage.get_votes()
